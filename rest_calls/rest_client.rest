@@ -1,0 +1,36 @@
+# https://github.com/Huachao/vscode-restclient
+@baseUrl = http://127.0.0.1:8000
+
+###
+GET {{baseUrl}}
+
+###
+# add empty line before header
+# Create a post
+POST {{baseUrl}}/post 
+Content-Type: application/json
+
+{
+    "body": "This is my second post",
+    "post_id": 1
+}
+
+###
+
+# Create a comment
+POST {{baseUrl}}/comment
+Content-Type: application/json
+
+{
+    "body": "This is my second comment on post 1",
+    "post_id": 1
+}
+
+###
+# Get all comments on post 0 (for given post)
+GET {{baseUrl}}/post/1/comment
+
+
+###
+# Get all posts with comments
+GET {{baseUrl}}/post/1
