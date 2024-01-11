@@ -23,11 +23,17 @@ def anyio_backend() -> Generator:
     return "asyncio"
 
 
+# @pytest.fixture()
+# def client() -> Generator:
+#     """just a function and not a fixture"""
+#     with TestClient(app) as c:
+#         yield c
+
+
 @pytest.fixture()
 def client() -> Generator:
     """just a function and not a fixture"""
-    with TestClient(app) as c:
-        yield c
+    yield TestClient(app)
 
 
 @pytest.fixture(autouse=True)
